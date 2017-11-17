@@ -12,6 +12,10 @@ io.on('connection',(socket) => {
     socket.on('send-message',(data) => {
         io.emit('message-received',data);
     });
+
+    socket.on('inbox',(data) => {
+      io.emit('inbox-refresh',data);
+  });
 });
 
 http.listen(port, function(){
